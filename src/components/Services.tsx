@@ -37,7 +37,7 @@ const services = [
     title: "Web Design",
     description: "Custom website design and development for your business or personal brand.",
     icon: <Globe className="h-10 w-10 text-brand-green" />,
-    pricing: "From KSH 5000",
+    pricing: "KSH 10,000",
     note: "Price varies with complexity",
     features: ["Responsive design", "SEO-friendly", "Custom features", "Modern UI/UX"]
   },
@@ -45,7 +45,7 @@ const services = [
     title: "Design Services",
     description: "Eye-catching visuals to elevate your brand.",
     icon: <Image className="h-10 w-10 text-brand-red" />,
-    pricing: "From KSH 150",
+    pricing: "KSH 200",
     note: "Price varies with complexity",
     features: ["Posters", "Flyers", "Business cards", "Logos & branding"]
   }
