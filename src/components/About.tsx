@@ -10,7 +10,7 @@ const teamMembers = [
     bio: "Jim specializes in creating visually stunning designs that capture brand essence. His expertise spans across various digital and print formats.",
     socials: {
       email: "wagunecreatives57@gmail.com",
-      phone: "0116108240"
+      phone: "0704284900"
     }
   },
   {

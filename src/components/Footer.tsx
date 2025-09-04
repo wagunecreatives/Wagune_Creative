@@ -44,7 +44,7 @@ const Footer = () => {
                 <Mail size={18} />
               </a>
               <a 
-                href="tel:0116108240" 
+                href="tel:0704284900"
                 className="bg-gray-800 hover:bg-brand-red p-2 rounded-full transition-colors duration-300"
                 aria-label="Phone"
               >
@@ -65,11 +65,6 @@ const Footer = () => {
                 <a href="#about" className="text-gray-400 hover:text-brand-red transition-colors">
                   About Us
                 </a>
-              </li>
-              <li>
-                <Link to="/portfolio" className="text-gray-400 hover:text-brand-red transition-colors">
-                  Portfolio
-                </Link>
               </li>
               <li>
                 <a href="#testimonials" className="text-gray-400 hover:text-brand-red transition-colors">
@@ -100,10 +95,10 @@ const Footer = () => {
                 <Phone className="h-5 w-5 mr-3 text-brand-red mt-0.5" />
                 <div>
                   <a 
-                    href="tel:0116108240" 
+                    href="tel:0704284900" 
                     className="block text-gray-400 hover:text-brand-red transition-colors"
                   >
-                    0116108240
+                    0704284900
                   </a>
                   <a 
                     href="tel:0700432589" 

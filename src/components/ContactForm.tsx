@@ -202,10 +202,10 @@ const ContactForm = () => {
                     <h3 className="font-bold mb-1">Phone</h3>
                     <div className="space-y-1">
                       <a 
-                        href="tel:0116108240" 
+                        href="tel:0704284900" 
                         className="block text-muted-foreground hover:text-brand-red transition-colors"
                       >
-                        0116108240
+                        0704284900
                       </a>
                       <a 
                         href="tel:0700432589" 
@@ -229,12 +229,12 @@ const ContactForm = () => {
                     <h3 className="font-bold mb-1">WhatsApp</h3>
                     <div className="space-y-1">
                       <a 
-                        href="https://wa.me/254116108240" 
+                        href="https://wa.me/254704284900" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="block text-muted-foreground hover:text-brand-red transition-colors"
                       >
-                        0116108240
+                        0704284900
                       </a>
                       <a 
                         href="https://wa.me/254700432589" 

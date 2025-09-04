@@ -33,7 +33,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-6">
           <a href="#services" className="text-sm font-medium hover:text-brand-red transition-colors">Services</a>
           <a href="#about" className="text-sm font-medium hover:text-brand-red transition-colors">About Us</a>
-          <Link to="/portfolio" className="text-sm font-medium hover:text-brand-red transition-colors">Portfolio</Link>
+          
           <a href="#testimonials" className="text-sm font-medium hover:text-brand-red transition-colors">Testimonials</a>
           <a href="#contact" className="text-sm font-medium hover:text-brand-red transition-colors">Contact</a>
           <Button variant="outline" onClick={() => setIsLoginOpen(true)}>Log In</Button>
@@ -54,7 +54,7 @@ const Navbar = () => {
           <nav className="flex flex-col space-y-4">
             <a href="#services" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="#about" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</a>
-            <Link to="/portfolio" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
+            
             <a href="#testimonials" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
             <a href="#contact" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
             <div className="flex space-x-4">
