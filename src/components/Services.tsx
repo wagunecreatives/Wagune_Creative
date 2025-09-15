@@ -23,7 +23,7 @@ const services = [
     title: "Academic Writing",
     description: "Professional academic papers with proper citation and research.",
     icon: <FileText className="h-10 w-10 text-brand-green" />,
-    pricing: "KSH 1000 per page",
+    pricing: "KSH 100 per page",
     features: ["Proper formatting", "In-depth research", "Plagiarism-free", "Various citation styles"]
   },
   {
@@ -47,7 +47,7 @@ const services = [
     icon: <Image className="h-10 w-10 text-brand-red" />,
     pricing: "KSH 200",
     note: "Price varies with complexity",
-    features: ["Posters", "Flyers", "Business cards", "Logos & branding"]
+    features: ["Posters", "Flyers", "Business cards", "Logos & branding","Portfolios"]
   }
 ];
 

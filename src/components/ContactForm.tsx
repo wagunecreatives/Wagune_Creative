@@ -47,7 +47,7 @@ const ContactForm = () => {
             <CardHeader>
               <CardTitle className="text-2xl">Send Us a Message</CardTitle>
               <CardDescription>
-                Text us or reach us on out accounts.will get to you on time.Thank you.
+                Text us or reach us on our accounts.will get to you on time.Thank you.
               </CardDescription>
             </CardHeader>
             <CardContent>
