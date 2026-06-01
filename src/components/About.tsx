@@ -28,7 +28,7 @@ const teamMembers = [
     image: "/uploads/julius-wagune.png",
     bio: "Julius helps brands find their voice turning ideas into clear messaging and standout creative. From concept to delivery, he ensures every project feels authentic, intentional, and audience focused.",
     socials: {
-      email: "wagunecreatives57@gmail.com",
+      email: "juliusnjoroge0008@gmail.com",
       phone: "01132285479",
     },
   },
