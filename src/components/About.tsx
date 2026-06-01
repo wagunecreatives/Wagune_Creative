@@ -14,13 +14,33 @@ const teamMembers = [
     }
   },
   {
-    name: "Ian Gumbe",
+    name: "Everlyne Willy",
     position: "Creative Director",
-    image: "/lovable-uploads/066c60fe-9546-45c1-a1e8-302127702a6c.png",
-    bio: "With a keen eye for design and a passion for creative writing, Ian leads our creative team in delivering exceptional content and design solutions.",
+    image: "/lovable-uploads/image-eve.png",
+    bio: "With a keen eye for design and a passion for creative writing, Everlyne leads our creative team in delivering exceptional content and design solutions.",
+    socials: {
+      email: "everlynewilly62@gmail.com ",
+      phone: "0757445696"
+    }
+  },
+  {
+    name: "Julius Njoroge",
+    position: "Brand & social media manager",
+    image: "/lovable-uploads/julius-wagune.png",
+    bio: "Julius helps brands find their voice turning ideas into clear messaging and standout creative. From concept to delivery, he ensures every project feels authentic, intentional, and audience focused.",
     socials: {
       email: "wagunecreatives57@gmail.com",
-      phone: "0700432589"
+      phone: "01132285479"
+    }
+  },
+  {
+    name: "Mike Kamau",
+    position: "Web Developer",
+    image: "/lovable-uploads/mike-wagune.png",
+    bio: "Mike builds fast, responsive websites and web applications, translating design into clean, maintainable code and ensuring smooth performance across devices.",
+    socials: {
+      email: "ngigimichael76@gmail.com",
+      phone: "0715 883594"
     }
   }
 ];
@@ -29,9 +49,9 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="section-heading">About Us</h2>
+        <h2 className="section-heading">Our team</h2>
         <p className="section-subheading">
-          Meet the creative minds behind WeguneCreatives, dedicated to bringing your vision to life.
+          Meet the creative minds behind WaguneCreatives, dedicated to bringing your vision to life.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
@@ -66,14 +86,7 @@ const About = () => {
                       <Phone className="h-4 w-4 mr-2" />
                       {member.socials.phone}
                     </a>
-                    <div className="flex space-x-4 mt-2">
-                      <a href="#" className="text-gray-500 hover:text-brand-red transition-colors">
-                        <Facebook className="h-5 w-5" />
-                      </a>
-                      <a href="#" className="text-gray-500 hover:text-brand-red transition-colors">
-                        <Instagram className="h-5 w-5" />
-                      </a>
-                    </div>
+                    
                   </div>
                 </CardContent>
               </div>
@@ -84,7 +97,7 @@ const About = () => {
         <div className="mt-16 bg-white p-8 rounded-lg shadow-md">
           <h3 className="text-2xl font-bold mb-4 text-center font-heading">Our Mission</h3>
           <p className="text-center text-gray-600 max-w-3xl mx-auto">
-            At WeguneCreatives, we're passionate about delivering high-quality content and designs that help our clients connect with their audience. We combine creativity, expertise, and professionalism to ensure every project exceeds expectations.
+            At WaguneCreatives, we're passionate about delivering high-quality content and designs that help our clients connect with their audience. We combine creativity, expertise, and professionalism to ensure every project exceeds expectations.
           </p>
         </div>
       </div>

@@ -52,6 +52,7 @@ const Index = () => {
         <Testimonials />
         <ContactForm />
       </main>
+
       <Footer />
     </div>
   );

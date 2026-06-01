@@ -1,96 +1,169 @@
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import {
+  CheckCircle2,
+  Paintbrush,
+  Megaphone,
+  LayoutDashboard
+} from 'lucide-react';
 
-import { 
-  PenLine, 
-  FileText, 
-  Briefcase, 
-  Image,
-  CheckCircle,
-  Globe
-} from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import LoginModal from './LoginModal';
 
 const services = [
   {
-    title: "Blog Posts & Articles",
-    description: "High-quality, engaging content for your website or publication.",
-    icon: <PenLine className="h-10 w-10 text-brand-red" />,
-    pricing: "KSH 2 per word",
-    note: "Negotiable for high word count",
-    features: ["SEO-optimized", "Well-researched", "Original content", "Custom tone & style"]
+    title: 'Social Media Management',
+    price: ' KSH 15,000',
+    description:
+      'Plan, create, and manage content that grows your audience and keeps your brand consistent.',
+    icon: Megaphone,
+    bullets: [
+      'Content planning & posting schedules',
+      'Post designs & content templates',
+      'Community management & engagement',
+      'Monthly performance insights & recommendations'
+    ]
   },
   {
-    title: "Academic Writing",
-    description: "Professional academic papers with proper citation and research.",
-    icon: <FileText className="h-10 w-10 text-brand-green" />,
-    pricing: "KSH 100 per page",
-    features: ["Proper formatting", "In-depth research", "Plagiarism-free", "Various citation styles"]
+    title: 'Web Development',
+    price: 'KSH 25,000',
+    description:
+      'Build fast, modern websites with clean UI and a smooth user experience.',
+    icon: LayoutDashboard,
+    bullets: [
+      'Landing pages & multi-page websites',
+      'Responsive design for mobile & desktop',
+      'Performance & SEO-friendly structure',
+      'Deployment support & basic maintenance'
+    ]
   },
   {
-    title: "Business Documents",
-    description: "Professional business documents for company needs.",
-    icon: <Briefcase className="h-10 w-10 text-brand-black" />,
-    pricing: "KSH 1500 per document",
-    features: ["Professional formatting", "Industry-specific", "Customizable templates", "Quick turnaround"]
+    title: 'Graphic Design',
+    price: ' KSH 300',
+    description:
+      'Eye-catching visuals for branding, campaigns, and everyday marketing needs.',
+    icon: Paintbrush,
+    bullets: [
+      'Logos, flyers, posters & branding assets',
+      'Social media graphics & marketing creatives',
+      'Design consistency using brand guidelines'
+    ]
   },
   {
-    title: "Web Design",
-    description: "Custom website design and development for your business or personal brand.",
-    icon: <Globe className="h-10 w-10 text-brand-green" />,
-    pricing: "KSH 10,000",
-    note: "Price varies with complexity",
-    features: ["Responsive design", "SEO-friendly", "Custom features", "Modern UI/UX"]
-  },
-  {
-    title: "Design Services",
-    description: "Eye-catching visuals to elevate your brand.",
-    icon: <Image className="h-10 w-10 text-brand-red" />,
-    pricing: "KSH 200",
-    note: "Price varies with complexity",
-    features: ["Posters", "Flyers", "Business cards", "Logos & branding","Portfolios"]
+    title: 'Academic & Professional Writing',
+    price: 'KSH 1,000 per page',
+    description:
+      'Well-structured writing with proper formatting and clear research support.',
+    icon: Paintbrush,
+    bullets: [
+      'Research papers & assignments',
+      'Editing, proofreading & formatting',
+      'Reports and structured documents',
+      'Deadline-focused turnaround'
+    ]
   }
 ];
 
-const Services = () => {
-  return (
-    <section id="services" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="section-heading">Our Services</h2>
-        <p className="section-subheading">
-          We offer a range of professional writing and design services to help you stand out.
-        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-          {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-shadow duration-300 h-full border-t-4 hover:border-t-brand-red">
-              <CardHeader className="pb-4">
-                <div className="mb-4">{service.icon}</div>
-                <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-                <CardDescription className="text-gray-600">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="mb-4">
-                  <p className="text-lg font-bold text-brand-red">{service.pricing}</p>
-                  {service.note && <p className="text-sm text-gray-500">{service.note}</p>}
-                </div>
-                <ul className="space-y-2">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 mr-2 text-brand-green" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className="w-full mt-6" variant="outline" asChild>
-                  <a href="#contact">Request Quote</a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+
+
+export default function Services() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const whatsapp = 'https://wa.me/254704284900';
+
+  const isAuthenticated =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('isAuthenticated') === 'true';
+
+  const handleServiceClick = () => {
+    if (!isAuthenticated) {
+      setIsLoginOpen(true);
+      return;
+    }
+
+    window.open(whatsapp, '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <section id="services" className="py-20 bg-gray-50 scroll-mt-20">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center text-center gap-4">
+          <h2 className="section-heading">Services</h2>
+          <p className="section-subheading">
+            A complete set of creative offerings design, writing, and marketing
+            support so you can launch faster and look better.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <Card
+                key={service.title}
+                className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <button
+                  type="button"
+                  onClick={handleServiceClick}
+                  className="w-full text-left"
+                  aria-label={`Select service: ${service.title}`}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-red-50 to-green-50 border border-gray-200 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-brand-red" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-baseline gap-3 flex-wrap">
+                          <h3 className="text-xl font-bold tracking-tight">
+                            {service.title}
+                          </h3>
+                          <div className="text-brand-red font-semibold text-sm">
+                            From{' '}
+                            <span className="text-lg">{service.price}</span>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <ul className="mt-5 space-y-3">
+                      {service.bullets.map((b) => (
+                        <li key={b} className="flex items-start text-sm">
+                          <CheckCircle2 className="h-5 w-5 text-brand-green mr-2 mt-0.5" />
+                          <span className="text-gray-700">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-6">
+                      <Button
+                        type="button"
+                        className="w-full rounded-full"
+                        variant={isAuthenticated ? 'default' : 'outline'}
+                        onClick={(e) => {
+                          // keep button click from bubbling twice
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleServiceClick();
+                        }}
+                      >
+                        {isAuthenticated ? 'Hire this service' : 'Login to view details'}
+                      </Button>
+                    </div>
+                  </CardContent>
+                </button>
+              </Card>
+            );
+          })}
         </div>
       </div>
+
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </section>
   );
-};
+}
 
-export default Services;

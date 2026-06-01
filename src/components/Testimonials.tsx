@@ -6,26 +6,27 @@ const testimonials = [
   {
     name: "Esther Kwamboka",
     position: "Small Business Owner",
-    testimonial: "WeguneCreatives helped transform my business with their exceptional content writing and design services. Their attention to detail and quick turnaround time exceeded my expectations!",
+    testimonial: "WaguneCreatives helped transform my business with their exceptional content writing and design services. Their attention to detail and quick turnaround time exceeded my expectations!",
     rating: 5
   },
   {
     name: "Anne Auma",
     position: "Marketing Director",
-    testimonial: "I've worked with many creative agencies, but WeguneCreatives stands out with their professionalism and quality of work. Their blog articles generated significant traffic to our website.",
+    testimonial: "I've worked with many creative agencies, but WaguneCreatives stands out with their professionalism and quality of work. Their blog articles generated significant traffic to our website.",
     rating: 5
   },
   {
     name: "Victor Owuor",
     position: "Student",
-    testimonial: "The academic writing services provided by WeguneCreatives were instrumental in helping me complete my research paper. Their work was well-researched, properly formatted, and delivered on time.",
+    testimonial: "The academic writing services provided by WaguneCreatives were instrumental in helping me complete my research paper. Their work was well-researched, properly formatted, and delivered on time.",
     rating: 4
   }
 ];
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-white scroll-mt-20">
+
       <div className="container mx-auto px-4">
         <h2 className="section-heading">Client Testimonials</h2>
         <p className="section-subheading">

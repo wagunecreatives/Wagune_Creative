@@ -1,90 +1,55 @@
-
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-import SignupModal from "./SignupModal";
+import { Button } from './ui/button';
+import { Sparkles, Zap, Star, Clock, Phone } from 'lucide-react';
 
 const Hero = () => {
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (videoElement) {
-      videoElement.addEventListener('loadeddata', () => setVideoLoaded(true));
-      return () => {
-        videoElement.removeEventListener('loadeddata', () => setVideoLoaded(true));
-      };
-    }
-  }, []);
-
   return (
-    <section className="relative overflow-hidden py-20 md:py-32 bg-black">
-      {/* Video background */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <video 
-          ref={videoRef}
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className={`object-cover w-full h-full transition-opacity duration-700 ${videoLoaded ? 'opacity-40' : 'opacity-0'}`}
-          onCanPlayThrough={() => setVideoLoaded(true)}
-        >
-          <source src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/GTYSdDW/videoblocks-digital-network-connections-and-global-communication-concept-abstract-connected-dots-with-lines-and-geometric-triangular-shapes-moving-waves-of-particles-innovative-technologies_bbp92ixou__9aeec83cb3d9ea089cf08bd0b9b1f5f1__P360.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Fallback background while video loads */}
-        <div 
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
-          style={{ 
-            backgroundImage: "url('https://drive.google.com/uc?export=view&id=1XFfmEEPGJoLRK9ZabsuQMc87pU5UBYyI')"
-          }}
-        >
-          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        </div>
-      </div>
-
-      {/* Color overlay to improve text visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70"></div>
-      
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-6 text-white">
-              Creative Solutions for Your <span className="gradient-text">Digital Needs</span>
+    <section id="home" className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-white via-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <Sparkles className="h-4 w-4" />
+              Full-service creative agency
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
+              Creative solutions for <span className="text-red-600">your</span>
+              <br />Digital <span className="text-green-700">needs</span>
             </h1>
-            <p className="text-xl mb-8 text-white">
-              Professional writing, stunning designs, and innovative projects 
-              tailored for your brand's success
+            <p className="text-gray-600 text-lg md:text-xl mt-6 max-w-xl">
+              Professional writing, stunning designs, and innovative projects tailored for your brand's success
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={() => setIsSignupOpen(true)}>
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="flex flex-wrap gap-4 mt-8">
+              <Button size="lg" className="bg-red-600 hover:bg-red-700 rounded-full" asChild>
+                <a href="#services">Get Service Pricing</a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent text-white hover:bg-white hover:text-black border-white" asChild>
+              <Button size="lg" variant="outline" className="border-green-600 text-green-700 hover:bg-green-50 rounded-full" asChild>
                 <a href="#services">Explore Services</a>
               </Button>
             </div>
-          </div>
-          <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-red to-brand-green rounded-lg blur opacity-30 animate-pulse"></div>
-              <div className="relative bg-white p-6 rounded-lg shadow-xl">
-                <img 
-                  src="/lovable-uploads/10a32cdc-ff3b-4ce5-b367-aafa056eddfa.png" 
-                  alt="WaguneCreatives Logo" 
-                  className="w-64 h-auto mx-auto"
-                />
-              </div>
+            <div className="flex items-center gap-6 mt-8 text-sm text-gray-500">
+              <span className="flex items-center gap-1">
+                <Zap className="h-4 w-4 text-green-600" /> 50+ projects
+              </span>
+              <span className="flex items-center gap-1">
+                <Star className="h-4 w-4 text-yellow-500" /> 4.9 client rating
+              </span>
+              <span className="flex items-center gap-1">
+                <Clock className="h-4 w-4" /> 48h delivery
+              </span>
             </div>
+          </div>
+            <div className="relative">
+            <div className="bg-gradient-to-tr from-red-50 to-green-50 rounded-2xl p-2 shadow-xl">
+              <img 
+                src="/lovable-uploads/wagune-pic.png"
+                alt="Wagune Creatives"
+                className="rounded-xl w-full object-contain shadow-md bg-white"
+              />
+            </div>
+           
           </div>
         </div>
       </div>
-
-      <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
     </section>
   );
 };

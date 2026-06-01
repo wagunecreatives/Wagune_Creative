@@ -107,4 +107,25 @@
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-red to-brand-green;
   }
+
+  @keyframes floatSlow {
+    0%, 100% { transform: translate(0px, 0px); }
+    50% { transform: translate(18px, -14px); }
+  }
+
+  @keyframes floatSlow2 {
+    0%, 100% { transform: translate(0px, 0px); }
+    50% { transform: translate(-16px, 12px); }
+  }
+
+  @keyframes floatSlow3 {
+    0%, 100% { transform: translate(0px, 0px); }
+    50% { transform: translate(10px, 16px); }
+  }
+
+  @keyframes floatSlow4 {
+    0%, 100% { transform: translate(0px, 0px); }
+    50% { transform: translate(-12px, -18px); }
+  }
 }
+

@@ -1,84 +1,121 @@
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import SignupModal from "./SignupModal";
-import LoginModal from "./LoginModal";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Menu, X, PenTool } from 'lucide-react';
+import { Button } from './ui/button';
+import LoginModal from './LoginModal';
+import SignupModal from './SignupModal';
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'Services', href: '#services' },
+    
+    { name: 'Testimonials', href: '#testimonials' },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b">
-      <div className="container mx-auto flex justify-between items-center py-4">
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/10a32cdc-ff3b-4ce5-b367-aafa056eddfa.png" 
-              alt="WaguneCreatives Logo" 
-              className="h-10 w-auto"
-            />
-            <span className="ml-2 text-xl font-bold font-display hidden sm:block">WaguneCreatives</span>
-          </Link>
-        </div>
+    <>
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo Section */}
+            <div className="flex items-center space-x-2">
+              <img
+                src="/lovable-uploads/image-logo.png"
+                alt="Wagune Creatives"
+                className="h-10 w-10 object-contain"
+              />
+              <div className="flex flex-col">
+                <span className="font-bold text-xl tracking-tight">
+                  WAGUNE<span className="text-red-600"> CREATIVES</span>
+                </span>
+                <span className="text-[10px] font-medium text-gray-500 tracking-wide -mt-1">
+                  DESIGN THAT SPEAKS
+                </span>
+              </div>
+            </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <a href="#services" className="text-sm font-medium hover:text-brand-red transition-colors">Services</a>
-          <a href="#about" className="text-sm font-medium hover:text-brand-red transition-colors">About Us</a>
-          
-          <a href="#testimonials" className="text-sm font-medium hover:text-brand-red transition-colors">Testimonials</a>
-          <a href="#contact" className="text-sm font-medium hover:text-brand-red transition-colors">Contact</a>
-          <Button variant="outline" onClick={() => setIsLoginOpen(true)}>Log In</Button>
-          <Button onClick={() => setIsSignupOpen(true)}>Sign Up</Button>
-        </nav>
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-700 hover:text-red-600 font-medium transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white p-4 border-t">
-          <nav className="flex flex-col space-y-4">
-            <a href="#services" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</a>
-            <a href="#about" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</a>
-            
-            <a href="#testimonials" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
-            <a href="#contact" className="text-sm font-medium hover:text-brand-red transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            <div className="flex space-x-4">
-              <Button variant="outline" className="flex-1" onClick={() => {
-                setIsLoginOpen(true);
-                setMobileMenuOpen(false);
-              }}>
-                Log In
+              <Button
+                variant="ghost"
+                className="rounded-full text-gray-700 hover:text-red-600 hover:bg-transparent"
+                onClick={() => setIsLoginOpen(true)}
+              >
+                Login
               </Button>
-              <Button className="flex-1" onClick={() => {
-                setIsSignupOpen(true);
-                setMobileMenuOpen(false);
-              }}>
-                Sign Up
+              <Button className="bg-green-600 hover:bg-green-700 rounded-full" onClick={() => setIsSignupOpen(true)}>
+                Signup
               </Button>
             </div>
-          </nav>
-        </div>
-      )}
 
-      <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 rounded-md text-gray-700"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isOpen && (
+            <div className="md:hidden py-4 border-t">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-2 text-gray-700 hover:text-red-600 font-medium"
+                >
+                  {link.name}
+                </a>
+              ))}
+
+              <div className="flex flex-col gap-2 mt-4">
+                <Button
+                  variant="ghost"
+                  className="w-full rounded-full text-gray-700 hover:text-red-600 hover:bg-transparent"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsLoginOpen(true);
+                  }}
+                >
+                  Login
+                </Button>
+                <Button
+                  className="w-full bg-green-600 hover:bg-green-700 rounded-full"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsSignupOpen(true);
+                  }}
+                >
+                  Signup
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+
       <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
-    </header>
+      <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
+    </>
   );
 };
 
 export default Navbar;
+
