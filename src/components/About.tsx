@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 
@@ -6,43 +5,43 @@ const teamMembers = [
   {
     name: "Jim Carson",
     position: "Lead Designer",
-    image: "/lovable-uploads/977ce4f9-61ba-436c-804b-6d0e01eabfd3.png",
+    image: "/uploads/977ce4f9-61ba-436c-804b-6d0e01eabfd3.png",
     bio: "Jim specializes in creating visually stunning designs that capture brand essence. His expertise spans across various digital and print formats.",
     socials: {
       email: "wagunecreatives57@gmail.com",
-      phone: "0704284900"
-    }
+      phone: "0704284900",
+    },
   },
   {
     name: "Everlyne Willy",
     position: "Creative Director",
-    image: "/lovable-uploads/image-eve.png",
+    image: "/uploads/image-eve.png",
     bio: "With a keen eye for design and a passion for creative writing, Everlyne leads our creative team in delivering exceptional content and design solutions.",
     socials: {
       email: "everlynewilly62@gmail.com ",
-      phone: "0757445696"
-    }
+      phone: "0757445696",
+    },
   },
   {
     name: "Julius Njoroge",
     position: "Brand & social media manager",
-    image: "/lovable-uploads/julius-wagune.png",
+    image: "/uploads/julius-wagune.png",
     bio: "Julius helps brands find their voice turning ideas into clear messaging and standout creative. From concept to delivery, he ensures every project feels authentic, intentional, and audience focused.",
     socials: {
       email: "wagunecreatives57@gmail.com",
-      phone: "01132285479"
-    }
+      phone: "01132285479",
+    },
   },
   {
     name: "Mike Kamau",
     position: "Web Developer",
-    image: "/lovable-uploads/mike-wagune.png",
+    image: "/uploads/mike-wagune.png",
     bio: "Mike builds fast, responsive websites and web applications, translating design into clean, maintainable code and ensuring smooth performance across devices.",
     socials: {
       email: "ngigimichael76@gmail.com",
-      phone: "0715 883594"
-    }
-  }
+      phone: "0715 883594",
+    },
+  },
 ];
 
 const About = () => {
@@ -59,9 +58,9 @@ const About = () => {
             <Card key={index} className="overflow-hidden border-none shadow-lg">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="h-full">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
+                  <img
+                    src={member.image}
+                    alt={member.name}
                     className="w-full h-full object-cover aspect-square"
                   />
                 </div>
@@ -72,21 +71,20 @@ const About = () => {
                     <p className="text-gray-600 mb-6">{member.bio}</p>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <a 
-                      href={`mailto:${member.socials.email}`} 
+                    <a
+                      href={`mailto:${member.socials.email}`}
                       className="flex items-center text-sm hover:text-brand-red transition-colors"
                     >
                       <Mail className="h-4 w-4 mr-2" />
                       {member.socials.email}
                     </a>
-                    <a 
-                      href={`tel:${member.socials.phone}`} 
+                    <a
+                      href={`tel:${member.socials.phone}`}
                       className="flex items-center text-sm hover:text-brand-red transition-colors"
                     >
                       <Phone className="h-4 w-4 mr-2" />
                       {member.socials.phone}
                     </a>
-                    
                   </div>
                 </CardContent>
               </div>
@@ -106,3 +104,4 @@ const About = () => {
 };
 
 export default About;
+

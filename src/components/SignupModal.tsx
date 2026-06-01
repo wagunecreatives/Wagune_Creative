@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { X } from "lucide-react";
+
 
 interface SignupModalProps {
   isOpen: boolean;
@@ -82,15 +82,7 @@ const SignupModal = ({ isOpen, onClose }: SignupModalProps) => {
           <DialogDescription>
             Sign up to access our services and contact our team.
           </DialogDescription>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4"
-            onClick={onClose}
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </Button>
+
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4 py-4">

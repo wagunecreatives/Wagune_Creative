@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { X } from "lucide-react";
+
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -69,15 +69,7 @@ const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
           <DialogDescription>
             Log in to your account to continue.
           </DialogDescription>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4"
-            onClick={onClose}
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </Button>
+
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4 py-4">

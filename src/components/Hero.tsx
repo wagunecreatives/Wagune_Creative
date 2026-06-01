@@ -41,7 +41,7 @@ const Hero = () => {
             <div className="relative">
             <div className="bg-gradient-to-tr from-red-50 to-green-50 rounded-2xl p-2 shadow-xl">
               <img 
-                src="/lovable-uploads/wagune-pic.png"
+src="/uploads/wagune-pic.png"
                 alt="Wagune Creatives"
                 className="rounded-xl w-full object-contain shadow-md bg-white"
               />

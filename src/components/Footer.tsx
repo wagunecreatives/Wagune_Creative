@@ -14,7 +14,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-6">
               <img 
-                src="/lovable-uploads/image-logo.png" 
+src="/uploads/image-logo.png"
                 alt="WaguneCreatives Logo" 
                 className="h-10 w-auto mr-3 bg-white p-1 rounded"
               />

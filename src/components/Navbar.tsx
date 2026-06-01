@@ -24,7 +24,7 @@ const Navbar = () => {
             {/* Logo Section */}
             <div className="flex items-center space-x-2">
               <img
-                src="/lovable-uploads/image-logo.png"
+src="/uploads/image-logo.png"
                 alt="Wagune Creatives"
                 className="h-10 w-10 object-contain"
               />
