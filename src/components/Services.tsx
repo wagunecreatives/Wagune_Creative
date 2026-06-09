@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 
 import LoginModal from './LoginModal';
+import ServicePackagesModal, { ServiceKey } from './ServicePackagesModal';
 
 const services = [
   {
@@ -69,13 +70,26 @@ const services = [
 
 export default function Services() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isPackagesOpen, setIsPackagesOpen] = useState(false);
+  const [selectedServiceKey, setSelectedServiceKey] = useState<ServiceKey>('social');
+
   const whatsapp = 'https://wa.me/254704284900';
 
   const isAuthenticated =
     typeof window !== 'undefined' &&
     localStorage.getItem('isAuthenticated') === 'true';
 
-  const handleServiceClick = () => {
+  const openPackagesForService = (key: ServiceKey) => {
+    if (!isAuthenticated) {
+      setIsLoginOpen(true);
+      return;
+    }
+
+    setSelectedServiceKey(key);
+    setIsPackagesOpen(true);
+  };
+
+  const handleOtherServiceClick = () => {
     if (!isAuthenticated) {
       setIsLoginOpen(true);
       return;
@@ -105,7 +119,21 @@ export default function Services() {
               >
                 <button
                   type="button"
-                  onClick={handleServiceClick}
+                  onClick={() => {
+                    if (service.title === 'Social Media Management') {
+                      openPackagesForService('social');
+                      return;
+                    }
+                    if (service.title === 'Web Development') {
+                      openPackagesForService('web');
+                      return;
+                    }
+                    if (service.title === 'Graphic Design') {
+                      openPackagesForService('graphic');
+                      return;
+                    }
+                    handleOtherServiceClick();
+                  }}
                   className="w-full text-left"
                   aria-label={`Select service: ${service.title}`}
                 >
@@ -148,7 +176,21 @@ export default function Services() {
                           // keep button click from bubbling twice
                           e.preventDefault();
                           e.stopPropagation();
-                          handleServiceClick();
+
+                          if (service.title === 'Social Media Management') {
+                            openPackagesForService('social');
+                            return;
+                          }
+                          if (service.title === 'Web Development') {
+                            openPackagesForService('web');
+                            return;
+                          }
+                          if (service.title === 'Graphic Design') {
+                            openPackagesForService('graphic');
+                            return;
+                          }
+
+                          handleOtherServiceClick();
                         }}
                       >
                         {isAuthenticated ? 'Hire this service' : 'Login to view details'}
@@ -163,6 +205,11 @@ export default function Services() {
       </div>
 
       <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+      <ServicePackagesModal
+        isOpen={isPackagesOpen}
+        onClose={() => setIsPackagesOpen(false)}
+        serviceKey={selectedServiceKey}
+      />
     </section>
   );
 }

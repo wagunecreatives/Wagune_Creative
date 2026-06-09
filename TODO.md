@@ -1,8 +1,16 @@
-# TODO - Clean Lovable-specific references
+# TODO
 
-- [ ] Copy all assets from `public/lovable-uploads/` to `public/uploads/` (behavior-preserving).
-- [ ] Update image references in source code and `index.html` from `/lovable-uploads/...` to `/uploads/...`.
-- [ ] Remove Lovable-specific guidance and URLs from `README.md` while keeping local dev instructions.
-- [ ] Remove Lovable-specific build tooling reference (`lovable-tagger`) from `vite.config.ts` and `package.json` if not required.
-- [ ] Run `npm run lint` and `npm run build` to verify no behavior regressions.
+## Service Package Tier Modals
+
+- [x] Create `src/components/ServicePackagesModal.tsx` showing 3 tiers (Starter/Professional/Premium) for:
+  - Social Media Management (12/20/daily posting as provided)
+  - Web Development (Starter/Business/Premium as provided)
+- [x] Update `src/components/Services.tsx` so that:
+  - Social Media Management card opens the tier modal when authenticated; otherwise open LoginModal.
+  - Web Development card opens the tier modal when authenticated; otherwise open LoginModal.
+  - Other cards keep existing WhatsApp behavior.
+- [ ] Verify by running `vite` (or `npm run dev`) and manually check the modals open correctly.
+- [x] Add Graphic Design tier modal (Starter/Professional/Premium) from provided copy.
+
+
 
